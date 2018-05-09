@@ -1,0 +1,16 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: kafka-test-client
+spec:
+  template:
+    metadata:
+      labels:
+        app: kafka-test-client
+    spec:
+      containers:
+      - name: kafka-test-client
+        image: tobiaswaggoner/kafka-test-client
+        ports:
+        - containerPort: 8080
