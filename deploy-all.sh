@@ -9,3 +9,7 @@ kubectl apply -f k8s/kafka-service.yml
 
 kubectl apply -f k8s/kafka-test-client.yml
 kubectl apply -f k8s/kafka-test-client-service.yml
+
+kubectl apply -f k8s/kafka-ui.yml
+kubectl apply -f k8s/kafka-ui-service.yml
+
