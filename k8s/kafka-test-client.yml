@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: kafka-test-client
-        image: tobiaswaggoner/kafka-test-client
+        image: tobiaswaggoner/kafka-test-client:0.3
         ports:
         - containerPort: 8080
