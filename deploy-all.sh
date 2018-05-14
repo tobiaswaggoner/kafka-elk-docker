@@ -15,3 +15,6 @@ kubectl apply -f k8s/kafka-ui-service.yml
 
 kubectl apply -f k8s/elastic-search.yml
 kubectl apply -f k8s/elastic-search-service.yml
+
+kubectl apply -f k8s/kibana.yml
+kubectl apply -f k8s/kibana-service.yml

@@ -15,3 +15,6 @@ kubectl delete deployment kafka-ui
 
 kubectl delete service elasticsearch
 kubectl delete deployment elastic-search
+
+kubectl delete service kibana
+kubectl delete deployment kibana
