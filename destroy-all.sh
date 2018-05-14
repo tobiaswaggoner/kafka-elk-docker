@@ -12,3 +12,6 @@ kubectl delete deployment kafka-test-client
 
 kubectl delete service kafka-ui
 kubectl delete deployment kafka-ui
+
+kubectl delete service elasticsearch
+kubectl delete deployment elastic-search

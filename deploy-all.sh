@@ -13,3 +13,5 @@ kubectl apply -f k8s/kafka-test-client-service.yml
 kubectl apply -f k8s/kafka-ui.yml
 kubectl apply -f k8s/kafka-ui-service.yml
 
+kubectl apply -f k8s/elastic-search.yml
+kubectl apply -f k8s/elastic-search-service.yml
