@@ -18,3 +18,5 @@ kubectl delete deployment elastic-search
 
 kubectl delete service kibana
 kubectl delete deployment kibana
+
+kubectl delete deployment logstash-indexer

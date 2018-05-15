@@ -20,3 +20,5 @@ kubectl apply -f k8s/kibana.yml
 kubectl apply -f k8s/kibana-service.yml
 
 kubectl apply -f k8s/logstash-indexer.yml
+
+kubectl apply -f k8s/filebeat-kubernetes.yml
