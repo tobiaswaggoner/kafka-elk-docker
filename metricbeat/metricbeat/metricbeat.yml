@@ -1,0 +1,16 @@
+metricbeat.modules:
+- module: system
+  metricsets:
+    - cpu
+    - filesystem
+    - memory
+    - network
+    - process
+  enabled: true
+  period: 10s
+  processes: ['.*']
+  cpu_ticks: false
+
+#----------------------------- Logstash output --------------------------------
+output.logstash:
+  hosts: ["logstash-indexer:5044"]

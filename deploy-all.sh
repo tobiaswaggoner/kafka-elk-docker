@@ -18,3 +18,5 @@ kubectl apply -f k8s/elastic-search-service.yml
 
 kubectl apply -f k8s/kibana.yml
 kubectl apply -f k8s/kibana-service.yml
+
+kubectl apply -f k8s/logstash-indexer.yml

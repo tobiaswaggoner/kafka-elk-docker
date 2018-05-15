@@ -1,0 +1,16 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: logstash-indexer
+spec:
+  template:
+    metadata:
+      labels:
+        app: logstash-indexer
+    spec:
+      containers:
+      - name: logstash-indexer
+        image: tobiaswaggoner/logstash-agent:0.2
+        ports:
+        - containerPort: 5044        
