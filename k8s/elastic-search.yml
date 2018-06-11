@@ -1,23 +1,23 @@
-  ---
-  kind: Deployment
-  apiVersion: extensions/v1beta1
-  metadata:
-    name: elastic-search
-  spec:
-    template:
-      metadata:
-        labels:
-          app: elastic-search
-      spec:
-        containers:
-        - name: elastic-search
-          image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
-          ports:
-          - containerPort: 9200
-          - containerPort: 9300
-          env:
-          - name: "discovery.type"
-            value: "single-node"
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: elastic-search
+spec:
+  template:
+    metadata:
+      labels:
+        app: elastic-search
+    spec:
+      containers:
+      - name: elastic-search
+        image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
+        ports:
+        - containerPort: 9200
+        - containerPort: 9300
+        env:
+        - name: "discovery.type"
+          value: "single-node"
 
-        - name: metric-beat
-          image: tobiaswaggoner/metricbeat:0.2
+      - name: metric-beat
+        image: tobiaswaggoner/metricbeat:0.12

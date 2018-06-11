@@ -14,3 +14,18 @@ metricbeat.modules:
 #----------------------------- Logstash output --------------------------------
 output.logstash:
   hosts: ["logstash-indexer:5044"]
+
+#----------------------------- Kafka output ---------------------------------
+# output.kafka:
+#   # initial brokers for reading cluster metadata
+#   hosts: "kafka-service:9092"
+
+#   # message topic selection + partitioning
+#   topic: "topic2"
+
+#   metadata:
+#     retry.max: 10
+  
+#   required_acks: 1
+#   compression: none
+#   max_message_bytes: 1000000
