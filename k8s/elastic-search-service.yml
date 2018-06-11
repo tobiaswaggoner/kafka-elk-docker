@@ -11,6 +11,7 @@ spec:
   - port: 9200
     name: elasticsearch9200
     protocol: TCP
+    nodePort: 31999
   selector:
     component: elasticsearch
     role: client
