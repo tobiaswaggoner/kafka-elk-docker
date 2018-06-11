@@ -1,23 +1,55 @@
----
+apiVersion: apps/v1beta1
 kind: Deployment
-apiVersion: extensions/v1beta1
 metadata:
-  name: elastic-search
+  name: es-master
+  labels:
+    component: elasticsearch
+    role: master
 spec:
+  replicas: 3
   template:
     metadata:
       labels:
-        app: elastic-search
+        component: elasticsearch
+        role: master
     spec:
+      initContainers:
+      - name: init-sysctl
+        image: busybox:1.27.2
+        command:
+        - sysctl
+        - -w
+        - vm.max_map_count=262144
+        securityContext:
+          privileged: true
       containers:
-      - name: elastic-search
+      - name: es-master
         image: docker.elastic.co/elasticsearch/elasticsearch:6.2.4
         ports:
-        - containerPort: 9200
         - containerPort: 9300
+          name: transport
+        livenessProbe:
+          tcpSocket:
+            port: transport
+        volumeMounts:
+        - name: storage
+          mountPath: /data
         env:
-        - name: "discovery.type"
-          value: "single-node"
-
-      - name: metric-beat
-        image: tobiaswaggoner/metricbeat:0.12
+        - name: CLUSTER_NAME
+          value: docker-cluster
+        - name: NUMBER_OF_MASTERS
+          value: "2"
+        - name: NODE_MASTER
+          value: "true"
+        - name: NODE_INGEST
+          value: "false"
+        - name: NODE_DATA
+          value: "false"
+        - name: HTTP_ENABLE
+          value: "false"
+        - name: ES_JAVA_OPTS
+          value: -Xms256m -Xmx256m
+      volumes:
+      - emptyDir:
+          medium: ""
+        name: "storage"

@@ -4,15 +4,14 @@ kind: Service
 metadata:
   name: elasticsearch
   labels:
-    name: elasticsearch
+    component: elasticsearch
+    role: client
 spec:
   ports:
   - port: 9200
     name: elasticsearch9200
     protocol: TCP
-  - port: 9300
-    name: elasticsearch9300
-    protocol: TCP
   selector:
-    app: elastic-search
+    component: elasticsearch
+    role: client
   type: NodePort
